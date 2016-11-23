@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var exphbs = require('express-handlebars');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -14,7 +15,13 @@ var heroes = require('./routes/heroes');
 var app = express();
 
 // ====EXPRESS-HANDLEBARS ENGINE=====
-app.engine('hbs', require('express-handlebars')({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
+exphbs.create({
+  helpers: {
+    foo: function(){return 'FOO!';}
+  }
+})
+app.engine('hbs', exphbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/', helpers: require('./helpers/handlebars')
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../config/db');
+var Planet = require('../models/planet');
 
 router
   .get('/', function(req, res, next) {
-    knex("planets")
+    Planet
+      .fetchAll({
+        withRelated: [{'race': function(qb){
+          qb.column('id', 'name');
+        }}]
+      })
       .then(data => {
         res.send(data);
       }, next)
