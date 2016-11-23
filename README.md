@@ -6,3 +6,4 @@ Key technologies/ dependencies used:
 - Views: handlebars templating engine
 - Database: Postgresql
 - ORM: knex.js and bookshelf.js
+- Styling: Sass 

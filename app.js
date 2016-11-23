@@ -7,8 +7,14 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var races = require('./routes/races');
+var planets = require('./routes/planets');
+var heroes = require('./routes/heroes');
 
 var app = express();
+
+// ====EXPRESS-HANDLEBARS ENGINE=====
+app.engine('hbs', require('express-handlebars')({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/races', races);
+app.use('/planets', planets);
+app.use('/heroes', heroes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
