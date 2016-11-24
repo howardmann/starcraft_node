@@ -8,13 +8,14 @@ require('./hero');
 
 var Race = Bookshelf.Model.extend({
   tableName: 'races',
+  idAttribute: 'id',
 
   planets: function(){
     return this.hasMany('Planet');
   },
 
   heroes: function(){
-    return this.hasMany("Hero")
+    return this.hasMany("Hero").through('Planet');
   }
 
 });

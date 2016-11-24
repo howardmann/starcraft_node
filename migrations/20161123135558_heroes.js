@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.text('description');
     table.integer('health');
     table.integer('attack');
-    table.integer('race_id').references('races.id');
+    table.integer('planet_id').references('planets.id');
     table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
     table.timestamp('updated_at');
   });

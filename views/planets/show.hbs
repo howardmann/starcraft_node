@@ -1,0 +1,13 @@
+<h2>Planet: {{_capitalize planet.name}}</h2>
+
+<h4>Description:</h4>
+
+<p>{{planet.description}}</p>
+
+<h4>Race:</h4>
+<p><a href="/races/{{planet.race.id}}">{{_capitalize planet.race.name}}</a></p>
+
+<h4>Heroes:</h4>
+{{#each planet.heroes}}
+  <p><a href="/heroes/{{id}}"></a>{{name}}</p>
+{{/each}}

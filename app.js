@@ -41,11 +41,12 @@ app.use(require('node-sass-middleware')({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/races', races);
-app.use('/planets', planets);
-app.use('/heroes', heroes);
+app.use(require('./routes'));
+// app.use('/', index);
+// app.use('/users', users);
+// app.use('/races', races);
+// app.use('/planets', planets);
+// app.use('/heroes', heroes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,14 +6,19 @@
 
 var Bookshelf = require('../config/db');
 require('./race');
+require('./hero');
+
 
 var Planet = Bookshelf.Model.extend({
   tableName: 'planets',
 
   race: function(){
     return this.belongsTo('Race');
-  }
+  },
 
+  heroes: function(){
+    return this.hasMany('Hero');
+  }
 
 });
 

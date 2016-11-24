@@ -3,31 +3,27 @@ var router = express.Router();
 var Race = require('../models/race');
 var _ = require('underscore');
 
-// var knex = require('../config/db');
-
-// Custom helper method to truncate
-var truncate = function(array, property, newProperty, numChars) {
-  array.forEach(function(el, i) {
-    el[newProperty] = el[property].substr(0,numChars) + '...';
-  });
-};
-
 router
   .get('/', function(req, res, next) {
     Race
       .fetchAll({withRelated: ['planets', 'heroes']})
       .then(data => {
-        var data = data.toJSON();
-
-        // Custom reference
-        // truncate(array, objectStringProperty, newStringProperty, numChars )
-        truncate(data, 'description', 'shortDescription', 150);
-
         res.render('races/index', {
-          races: data
+          races: data.toJSON()
         });
       }, next)
 
-  });
+  })
+  .get('/:id', (req, res, next) => {
+    Race
+      .where({id: req.params.id})
+      .fetch({withRelated: ['planets', 'heroes']})
+      .then(data => {
+        // res.json(data);
+        res.render('races/show', {
+          race: data.toJSON()
+        });
+      }, next)
+  })
 
 module.exports = router;

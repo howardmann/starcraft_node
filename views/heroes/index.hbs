@@ -1,4 +1,21 @@
 <h2>Heroes index</h2>
-<p>
-  Find me in heroes/index.hbs
-</p>
+
+<table>
+  <tr>
+    <th>Hero</th>
+    <th>Description</th>
+    <th>Race</th>
+    <th>Planet</th>
+  </tr>
+
+  {{#each heroes}}
+    <tr>
+      <td><a href="/heroes/{{id}}">{{_capitalize name}}</a></td>
+      <td>{{_truncate description 180}}</td>
+      <td><a href="/races/{{race.id}}">{{_capitalize race.name}}</a></td>
+      <td><a href="/planets/{{planet.id}}">{{_capitalize planet.name}}</a></td>
+    </tr>
+  {{/each}}
+
+
+</table>

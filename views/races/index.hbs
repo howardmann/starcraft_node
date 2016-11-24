@@ -10,10 +10,10 @@
 
   {{#each races}}
     <tr>
-      <td>{{_capitalize name}}</td>
+      <td><a href="/races/{{id}}">{{_capitalize name}}</a></td>
       <td>{{_truncate description 180}}</td>
       <td>{{#planets}} {{_capitalize name}} {{/planets}}</td>
-      <td>{{#heroes}} {{name}} {{/heroes}}</td>
+      <td>{{#heroes}} <a href="/heroes/{{id}}">{{name}}</a> {{/heroes}}</td>
     </tr>
   {{/each}}
 

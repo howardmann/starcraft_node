@@ -1,0 +1,20 @@
+<h2>Hero: {{_capitalize hero.name}}</h2>
+
+<h4>Description:</h4>
+
+<p>{{hero.description}}</p>
+
+<h4>Race:</h4>
+<p><a href="/races/{{hero.race.id}}">{{_capitalize hero.race.name}}</a></p>
+
+<h4>Planet:</h4>
+<p><a href="/races/{{hero.planet.id}}">{{_capitalize hero.planet.name}}</a></p>
+
+<h4>Health:</h4>
+<p>{{hero.health}}</p>
+
+<h4>Attack:</h4>
+<p>{{hero.attack}}</p>
+
+<h4>Total (Health + Attack):</h4>
+<p>{{total}}</p>
