@@ -4,9 +4,10 @@ exports.index = function(req, res) {
   Race
     .fetchAll({withRelated: ['planets', 'heroes']})
     .then(data => {
-      res.render('races/index', {
-        races: data.toJSON()
-      });
+      res.json(data);
+      // res.render('races/index', {
+      //   races: data.toJSON()
+      // });
     })
 };
 
