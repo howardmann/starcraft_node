@@ -15,3 +15,8 @@
 {{/each}}
 
 <button><a href="/races/{{race.id}}/edit">Edit</a></button>
+<br>
+<form method="POST" action="/races/{{race.id}}">
+  <input type="hidden" name="_method" value="DELETE">
+  <button>Delete</button>
+</form>
