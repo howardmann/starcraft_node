@@ -23,15 +23,27 @@ router
       .fetch()
       .then( data => {
         res.render('races/edit', {
+          id: data.get('id'),
           name: data.get('name'),
           description: data.get('description')
         });
       }, next)
   })
+  .put('/:id', (req, res, next) => {
+    Race
+      .forge({id: req.params.id})
+      .fetch()
+      .then( race => {
+        race.save({name: req.body.name, description: req.body.description})
+        .then(race => {
+          res.redirect('/races');
+        }, next)
+      })
+  })
   .post('/', (req, res, next) => {
     new Race({name: req.body.name, description: req.body.description})
       .save()
-      .then( data => {
+      .then( () => {
         res.redirect('/races');
       }, next)
   })
