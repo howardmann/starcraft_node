@@ -21,15 +21,15 @@ exports.create = (req, res, next) => {
     }, next);
 };
 
-exports.show = (req, res) => {
+exports.show = (req, res, next) => {
   Race
     .where({id: req.params.id})
     .fetch({withRelated: ['planets', 'heroes']})
     .then(data => {
       res.render('races/show', {
         race: data.toJSON()
-      }, next);
-    });
+      });
+    }, next);
 };
 
 exports.edit = (req, res) => {

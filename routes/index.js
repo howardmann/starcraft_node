@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var races = require('./races.js');
+var planets = require('./planets.js');
+var heroes = require('./heroes.js');
 
 router.get('/', (req, res, next) => res.render('index', {title: 'Express'}));
 
@@ -14,10 +16,15 @@ router
   .put('/races/:id', races.update)
   .delete('/races/:id', races.destroy)
 
-  // .get('/races/:id', races.show);
-// router.use('/races', require('./races.js'));
+// ===PLANETS
+router
+  .get('/planets', planets.index)
+  .get('/planets/:id', planets.show)
 
-// router.use('/planets', require('./planets.js'));
-// router.use('/heroes', require('./heroes.js'));
+// ===HEROES
+router
+  .get('/heroes', heroes.index)
+  .get('/heroes/:id', heroes.show)
+
 
 module.exports = router;
