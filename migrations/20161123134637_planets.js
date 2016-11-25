@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('planets', function(table){
-    table.increments('id').primary();
+    table.increments('id').unsigned().primary();
     table.string('name');
     table.text('description');
     table.integer('race_id').references('races.id');

@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('races', function(table){
-    table.increments('id').primary();
+    table.increments('id').unsigned().primary();
     table.string('name');
     table.text('description');
     table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
