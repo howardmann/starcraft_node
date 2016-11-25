@@ -1,0 +1,11 @@
+<h2>Edit race: {{name}}</h2>
+
+<form action="/races" method="post">
+  <p>Name</p>
+  <p><input type="text" name="name" value={{name}}></p>
+
+  <p>Description</p>
+  <p><input type="text" name="description" value={{description}}></p>
+
+  <p><input type="submit" value="Update"></p>
+</form>

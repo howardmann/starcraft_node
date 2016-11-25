@@ -14,6 +14,27 @@ router
       }, next)
 
   })
+  .get('/new', (req, res, next) => {
+    res.render('races/new');
+  })
+  .get('/:id/edit', (req, res, next) => {
+    Race
+      .where({id: req.params.id})
+      .fetch()
+      .then( data => {
+        res.render('races/edit', {
+          name: data.get('name'),
+          description: data.get('description')
+        });
+      }, next)
+  })
+  .post('/', (req, res, next) => {
+    new Race({name: req.body.name, description: req.body.description})
+      .save()
+      .then( data => {
+        res.redirect('/races');
+      }, next)
+  })
   .get('/:id', (req, res, next) => {
     Race
       .where({id: req.params.id})
