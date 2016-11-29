@@ -22,11 +22,11 @@ define(["backbone", "handlebars", "models/Race", "collections/Races", "views/Rac
 
     racesIndex: function() {
       var races = new Races();
-      races.fetch().done(function(response){
+      races.fetch().done(data => {
         var view = new RacesView({
           collection: races
         });
-        $('#main').html(view.render().el);
+        this._renderView(view);
       });
     },
 

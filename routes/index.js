@@ -3,9 +3,16 @@ var router = express.Router();
 var races = require('./races.js');
 var planets = require('./planets.js');
 var heroes = require('./heroes.js');
+var Race = require('../models/race');
 
 router.get('/', function(req, res, next){
-  res.render('index');
+  Race
+    .fetchAll({withRelated: ['planets', 'heroes']})
+    .then(data => {
+      res.render('index', {
+        races: data.toJSON()
+      });
+    }, next)
 });
 
 // ===RACES
