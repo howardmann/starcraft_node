@@ -4,9 +4,10 @@ exports.index = function(req, res, next) {
   Planet
     .fetchAll({withRelated: ['race']})
     .then(data => {
-      res.render('planets/index', {
-        planets: data.toJSON()
-      });
+      res.json(data);
+      // res.render('planets/index', {
+      //   planets: data.toJSON()
+      // });
     }, next)
 };
 
@@ -15,9 +16,10 @@ exports.show = (req, res, next) => {
     .where({id: req.params.id})
     .fetch({withRelated: ['race', 'heroes']})
     .then(data => {
-      res.render('planets/show', {
-        planet: data.toJSON()
-      });
+      res.json(data);
+    //   res.render('planets/show', {
+    //     planet: data.toJSON()
+    //   });
     }, next);
 };
 

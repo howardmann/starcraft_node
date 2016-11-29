@@ -1,14 +1,11 @@
 var Race = require('../models/race');
 
-exports.index = function(req, res) {
+exports.index = function(req, res, next) {
   Race
     .fetchAll({withRelated: ['planets', 'heroes']})
     .then(data => {
       res.json(data);
-      // res.render('races/index', {
-      //   races: data.toJSON()
-      // });
-    })
+    }, next)
 };
 
 exports.new = (req, res, next) => {res.render('races/new')};
@@ -27,9 +24,10 @@ exports.show = (req, res, next) => {
     .where({id: req.params.id})
     .fetch({withRelated: ['planets', 'heroes']})
     .then(data => {
-      res.render('races/show', {
-        race: data.toJSON()
-      });
+      res.json(data);
+      // res.render('races/show', {
+      //   race: data.toJSON()
+      // });
     }, next);
 };
 

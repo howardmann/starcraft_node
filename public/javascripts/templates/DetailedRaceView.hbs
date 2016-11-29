@@ -1,0 +1,17 @@
+<h2>Race: {{race.name}}</h2>
+
+<h3>Description:</h3>
+<p>{{description}}</p>
+
+<h3>Homeworld:</h3>
+<p><a href="#planet/{{planets.0.id}}">{{planets.0.name}}</a></p>
+<p>{{planets.0.description}}</p>
+
+<h3>Heroes:</h3>
+{{#each heroes}}
+  <p>{{name}}</p>
+  <p>{{description}}</p>
+  <hr>
+{{/each}}
+
+<p><a href="/#">All Races</a></p>
