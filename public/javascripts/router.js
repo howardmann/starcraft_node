@@ -10,7 +10,7 @@ define(["backbone", "handlebars", "models/Race", "collections/Races", "views/Rac
     },
 
     routes: {
-      "": "racesIndex",
+      "races": "racesIndex",
       "race/:id": "singleRace",
       "planets": "planetsIndex",
       "planet/:id": "singlePlanet",

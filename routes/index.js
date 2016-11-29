@@ -4,7 +4,9 @@ var races = require('./races.js');
 var planets = require('./planets.js');
 var heroes = require('./heroes.js');
 
-router.get('/', (req, res, next) => res.render('index', {title: 'Express'}));
+router.get('/', function(req, res, next){
+  res.render('index');
+});
 
 // ===RACES
 router
