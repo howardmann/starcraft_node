@@ -12,10 +12,11 @@ define(["backbone", "handlebars", "jquery", "text!templates/DetailedRaceView.hbs
     },
 
     removeRace: function(e) {
+      var self = this;
       e.preventDefault();
-      this.remove();
-      this.model.destroy().done(function(){
+      self.model.destroy().done(function(){
         Events.trigger("router:navigate", "races");
+        self.remove();
       });
     }
   });

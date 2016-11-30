@@ -25,7 +25,7 @@ define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", 
         var view = new RacesView({
           collection: races
         });
-        $('#main').html(view.render().el);
+        $('#main').html(view.render().el).fadeIn();
       });
     },
 
@@ -37,7 +37,7 @@ define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", 
         var view = new DetailedRaceView({
           model: race
         });
-        $("#main").html(view.render().el);
+        $("#main").html(view.render().el).fadeIn();
       });
     },
 
@@ -47,7 +47,7 @@ define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", 
         var view = new RacesForm({
           collection: races
         });
-        $('#main').html(view.render().el);
+        $('#main').html(view.render().el).fadeIn();
       })
     },
 
@@ -57,7 +57,7 @@ define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", 
         var view = new PlanetsView({
           collection: planets
         });
-        $('#main').html(view.render().el);
+        $('#main').html(view.render().el).fadeIn();
       });
     },
 
@@ -69,7 +69,7 @@ define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", 
         var view = new DetailedPlanetView({
           model: planet
         });
-        $('#main').html(view.render().el);
+        $('#main').html(view.render().el).fadeIn();
       });
     }
 
