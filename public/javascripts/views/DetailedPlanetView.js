@@ -1,7 +1,5 @@
-define(["backbone", "handlebars", "text!templates/DetailedPlanetView.hbs"], function(Backbone, Handlebars, template) {
+define(["backbone", "handlebars", "jquery", "text!templates/DetailedPlanetView.hbs"], function(Backbone, Handlebars, $, template) {
   var DetailedPlanetView = Backbone.View.extend({
-    // template: Handlebars.compile('<h2>{{name}}</h2><p>{{description}}</p><a href="/#">Back</a>'),
-
     template: Handlebars.compile(template),
 
     render: function() {

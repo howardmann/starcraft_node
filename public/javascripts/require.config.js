@@ -1,11 +1,12 @@
 require.config({
-  baseUrl: '/javascripts',
+  baseUrl: './javascripts',
+  waitSeconds: 200,
   paths: {
-    jquery: 'lib/jquery',
-    backbone: 'lib/backbone',
-    underscore: 'lib/underscore',
-    handlebars: 'lib/handlebars',
-    text: 'lib/text'
+    jquery: './lib/jquery',
+    backbone: './lib/backbone',
+    underscore: './lib/underscore',
+    handlebars: './lib/handlebars',
+    text: './lib/text'
   },
   shim: {
     backbone: {
@@ -17,6 +18,9 @@ require.config({
     },
     handlebars: {
       exports: 'Handlebars'
+    },
+    jquery: {
+      exports: '$'
     }
   }
 });

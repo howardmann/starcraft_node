@@ -1,4 +1,4 @@
-define(["backbone", "handlebars", "views/PlanetView"], function(Backbone, Handlebars, PlanetView) {
+define(["backbone", "handlebars", "jquery", "views/PlanetView"], function(Backbone, Handlebars, $,  PlanetView) {
   var PlanetsView = Backbone.View.extend({
     className: 'planets-view',
 

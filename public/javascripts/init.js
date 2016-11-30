@@ -1,6 +1,6 @@
-define(["backbone", "router"], function(Backbone, Router){
+define(["backbone", "./router"], function(Backbone, Router){
   $(document).ready(function(){
-    new Router();
+    var appRouter = new Router();
     Backbone.history.start();
   });
 });

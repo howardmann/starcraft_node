@@ -1,4 +1,4 @@
-define(["backbone", "handlebars", "events", "text!templates/RaceView.hbs"], function(Backbone, Handlebars, Events, template) {
+define(["backbone", "handlebars", "jquery", "events", "text!templates/RaceView.hbs"], function(Backbone, Handlebars, $, Events, template) {
   var RaceView = Backbone.View.extend({
     className: 'race-view',
 
