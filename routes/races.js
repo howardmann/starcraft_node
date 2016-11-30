@@ -54,13 +54,13 @@ exports.update = (req, res) => {
     }, next);
 };
 
-exports.destroy = (req, res) => {
+exports.destroy = (req, res, next) => {
   Race
     .forge({id: req.params.id})
     .fetch()
     .then( race => {
       race.destroy()
-      .then(res.redirect('/races'))
+      .then(res.json('Succesfully deleted'));
     }, next)
 };
 

@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", "views/RaceView", "views/RacesView", "views/DetailedRaceView", "models/Planet", "collections/Planets", "views/PlanetView", "views/PlanetsView", "views/DetailedPlanetView", "events"], function($, Backbone, Handlebars, Race, Races, RaceView, RacesView, DetailedRaceView, Planet, Planets, PlanetView, PlanetsView, DetailedPlanetView, Events) {
+define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", "views/RaceView", "views/RacesView", "views/DetailedRaceView", "views/RacesForm", "models/Planet", "collections/Planets", "views/PlanetView", "views/PlanetsView", "views/DetailedPlanetView", "events"], function($, Backbone, Handlebars, Race, Races, RaceView, RacesView, DetailedRaceView, RacesForm, Planet, Planets, PlanetView, PlanetsView, DetailedPlanetView, Events) {
 
   var Router = Backbone.Router.extend({
     initialize: function() {
@@ -14,6 +14,7 @@ define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", 
     routes: {
       "races": "racesIndex",
       "race/:id": "singleRace",
+      "races/new": 'racesNew',
       "planets": "planetsIndex",
       "planet/:id": "singlePlanet",
     },
@@ -38,6 +39,16 @@ define(["jquery", "backbone", "handlebars", "models/Race", "collections/Races", 
         });
         $("#main").html(view.render().el);
       });
+    },
+
+    racesNew: function(){
+      var races = new Races();
+      races.fetch().done(function(data){
+        var view = new RacesForm({
+          collection: races
+        });
+        $('#main').html(view.render().el);
+      })
     },
 
     planetsIndex: function() {
