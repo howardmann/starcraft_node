@@ -1,5 +1,5 @@
 require.config({
-  baseUrl: './javascripts',
+  baseUrl: 'javascripts',
   waitSeconds: 200,
   paths: {
     jquery: './lib/jquery',
