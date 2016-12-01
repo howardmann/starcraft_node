@@ -14,8 +14,8 @@ exports.create = (req, res, next) => {
   Race
     .forge({name: req.body.name, description: req.body.description})
     .save()
-    .then(() => {
-      res.redirect('/races')
+    .then((data) => {
+      res.json(data);
     }, next);
 };
 

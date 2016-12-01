@@ -18,6 +18,8 @@ var Race = Bookshelf.Model.extend({
     return this.hasMany("Hero").through('Planet');
   }
 
+}, {
+  dependents: ['planets']
 });
 
 module.exports = Bookshelf.model('Race', Race);

@@ -20,6 +20,8 @@ var Planet = Bookshelf.Model.extend({
     return this.hasMany('Hero');
   }
 
+}, {
+  dependents: ['heroes']
 });
 
 module.exports = Bookshelf.model('Planet', Planet);
